@@ -5,12 +5,17 @@ import shutil
 from pathlib import Path
 
 from src.scene.processor import process_scene
+from dotenv import load_dotenv
+from src.visuals.processor import process_references
 
 
 # Project paths
 ROOT_DIR = Path(__file__).parent
 CONFIG_FILE = ROOT_DIR / "project.json"
 OUTPUT_DIR = ROOT_DIR / "output"
+
+# Load Environment variables
+load_dotenv(ROOT_DIR / ".env")
 
 
 def load_config():
@@ -71,28 +76,51 @@ def initialize_project(config):
     return project_dir
 
 
+
 def process_project(config, project_dir):
-    """Process all scenes in a project."""
+    """Process project references and all scenes."""
 
-    scenes = config.get("scenes", [])
-    audio_config = config.get("audio", {})
+    # Visual settings
+    visual_settings = config.get("visuals", {})
 
-    provider = audio_config.get("provider", "edge")
-    voice = audio_config.get("voice")
+    visual_source = visual_settings.get("source", "ai")
+    visual_provider = visual_settings.get("provider", "cloudflare")
 
-    if not scenes:
-        print("No scenes found in project configuration.")
-        return
+    # Project resolution
+    width, height = config["project"]["resolution"]
 
-    for scene in scenes:
+    # Phase 1: Generate reusable project references
+    reference_paths = process_references(
+        project_dir=project_dir,
+        references=visual_settings.get("references", []),
+        source=visual_source,
+        provider=visual_provider,
+        width=480,
+        height=270
+    )
+
+    # Audio settings
+    audio_settings = config.get("audio", {})
+
+    audio_provider = audio_settings.get("provider", "edge")
+    voice = audio_settings.get("voice")
+
+    # Phase 2: Process scenes
+    for scene in config.get("scenes", []):
         process_scene(
             project_dir=project_dir,
             scene=scene,
-            provider=provider,
-            voice=voice
+            provider=audio_provider,
+            voice=voice,
+            reference_paths=reference_paths,
+            visual_source=visual_source,
+            visual_provider=visual_provider,
+            width=width,
+            height=height
         )
 
     print("\nAll scenes processed successfully!")
+
 
 
 def main():
