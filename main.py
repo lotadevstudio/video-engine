@@ -86,8 +86,11 @@ def process_project(config, project_dir):
     visual_source = visual_settings.get("source", "ai")
     visual_provider = visual_settings.get("provider", "cloudflare")
 
-    # Project resolution
-    width, height = config["project"]["resolution"]
+    # Project rendering settings
+    project_settings = config["project"]
+
+    width, height = project_settings["resolution"]
+    fps = project_settings.get("fps", 30)
 
     # Phase 1: Generate reusable project references
     reference_paths = process_references(
@@ -116,7 +119,8 @@ def process_project(config, project_dir):
             visual_source=visual_source,
             visual_provider=visual_provider,
             width=width,
-            height=height
+            height=height,
+            fps=fps
         )
 
     print("\nAll scenes processed successfully!")

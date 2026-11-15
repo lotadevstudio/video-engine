@@ -1,25 +1,119 @@
+
 {
   "project": {
     "id": "my_first_video",
     "title": "My First Documentary",
-    "format": "9:16",
-    "resolution": [1080, 1920],
+    "format": "16:9",
+    "resolution": [1920, 1080],
     "fps": 30
   },
   "audio": {
     "provider": "edge",
     "voice": "en-US-AriaNeural"
   },
+  "visuals": {
+    "source": "ai",
+    "provider": "cloudflare",
+    "references": [
+      {
+        "id": "main_character",
+        "type": "character",
+        "prompt": "A full-body stylized 3D male character for an educational documentary. Simple recognizable design, clean white clothing, expressive face, realistic 3D materials and soft studio lighting. Standing in a neutral pose, facing the camera. Plain light grey background. Professional 3D animation quality. No text or watermark.",
+        "output": "shared_assets/images/main_character.png"
+      },
+      {
+        "id": "village",
+        "type": "location",
+        "prompt": "A cinematic 3D environment of an ancient village surrounded by a dense green forest. Small wooden houses, natural materials, trees, a dirt pathway and warm morning sunlight. Wide establishing shot. Professional educational documentary visual style. No people, no characters, no text or watermark.",
+        "output": "shared_assets/images/village.png"
+      }
+    ]
+  },
   "scenes": [
     {
       "number": 1,
       "title": "The Beginning",
-      "narration": "Long before the modern world existed, a small community lived in the heart of the forest."
+      "narration": "Long before the modern world existed, a small community lived in the heart of the forest.",
+      "defaults": {
+        "motion": {
+          "type": "static",
+          "intensity": 0.03
+        },
+        "transition": {
+          "type": "cut",
+          "duration": 0
+        }
+      },
+      "shots": [
+        {
+          "id": 1,
+          "description": "A wide cinematic establishing shot of the ancient village at sunrise, with golden sunlight filtering through the surrounding forest.",
+          "references": ["village"],
+          "motion": {
+            "type": "slow_zoom_in",
+            "intensity": 0.03
+          },
+          "transition": {
+            "type": "crossfade",
+            "duration": 0.5
+          }
+        },
+        {
+          "id": 2,
+          "description": "The main character standing on a dirt pathway, looking towards the ancient village.",
+          "references": ["main_character", "village"],
+          "motion": {
+            "type": "static"
+          },
+          "transition": {
+            "type": "cut"
+          }
+        },
+        {
+          "id": 3,
+          "description": "A closer cinematic shot of the main character walking along the village pathway, surrounded by wooden houses and greenery.",
+          "references": ["main_character", "village"],
+          "motion": {
+            "type": "slow_pan_right",
+            "intensity": 0.02
+          }
+        }
+      ]
     },
     {
       "number": 2,
       "title": "A New Dawn",
-      "narration": "As the sun rose above the mountains, the villagers prepared for another day."
+      "narration": "As the sun rose above the mountains, the villagers prepared for another day.",
+      "defaults": {
+        "motion": {
+          "type": "static",
+          "intensity": 0.03
+        },
+        "transition": {
+          "type": "cut",
+          "duration": 0
+        }
+      },
+      "shots": [
+        {
+          "id": 1,
+          "description": "A beautiful wide shot of the morning sun rising above the forest surrounding the village.",
+          "references": ["village"],
+          "motion": {
+            "type": "slow_zoom_out",
+            "intensity": 0.03
+          }
+        },
+        {
+          "id": 2,
+          "description": "The main character walking through the village as warm morning sunlight illuminates the pathway.",
+          "references": ["main_character", "village"],
+          "motion": {
+            "type": "slow_pan_left",
+            "intensity": 0.02
+          }
+        }
+      ]
     }
   ]
 }
