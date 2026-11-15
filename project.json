@@ -1,0 +1,25 @@
+{
+  "project": {
+    "id": "my_first_video",
+    "title": "My First Documentary",
+    "format": "9:16",
+    "resolution": [1080, 1920],
+    "fps": 30
+  },
+  "audio": {
+    "provider": "edge",
+    "voice": "en-US-AriaNeural"
+  },
+  "scenes": [
+    {
+      "number": 1,
+      "title": "The Beginning",
+      "narration": "Long before the modern world existed, a small community lived in the heart of the forest."
+    },
+    {
+      "number": 2,
+      "title": "A New Dawn",
+      "narration": "As the sun rose above the mountains, the villagers prepared for another day."
+    }
+  ]
+}

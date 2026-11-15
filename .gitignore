@@ -1,0 +1,19 @@
+# Environment variables and secrets
+.env
+.env.*
+
+# Generated projects and media
+output/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
