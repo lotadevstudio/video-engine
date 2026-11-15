@@ -1,8 +1,8 @@
 
 {
   "project": {
-    "id": "my_first_video",
-    "title": "My First Documentary",
+    "id": "beware_chapter_one",
+    "title": "BEWARE - The First Day",
     "format": "16:9",
     "resolution": [1920, 1080],
     "fps": 30
@@ -16,28 +16,66 @@
     "provider": "cloudflare",
     "references": [
       {
-        "id": "main_character",
+        "id": "sarah",
         "type": "character",
-        "prompt": "A full-body stylized 3D male character for an educational documentary. Simple recognizable design, clean white clothing, expressive face, realistic 3D materials and soft studio lighting. Standing in a neutral pose, facing the camera. Plain light grey background. Professional 3D animation quality. No text or watermark.",
-        "output": "shared_assets/images/main_character.png"
+        "prompt": "Full-body character reference of Sarah, a young schoolgirl around 10 years old, with warm brown skin, large expressive dark brown eyes, shoulder-length dark brown hair with a simple hairstyle, wearing a neat light blue school uniform dress, white socks and black school shoes. She carries a small school backpack and holds a little toy doll. Gentle, curious facial expression. Standing in a neutral pose, facing camera. Cinematic 2D animated film illustration, polished professional animation, clean detailed linework, soft painterly shading. Plain neutral background. No text, no watermark."
+      ,
+        "output": "shared_assets/images/sarah.png"
       },
       {
-        "id": "village",
+        "id": "clara",
+        "type": "character",
+        "prompt": "Full-body character reference of Clara, Sarah's mother, a woman in her early 30s with warm brown skin, kind expressive eyes, dark brown hair tied neatly back, wearing a modest elegant cream blouse and dark trousers. Calm, caring maternal expression. Standing in a neutral pose, facing camera. Cinematic 2D animated film illustration, polished professional animation, clean detailed linework, soft painterly shading. Plain neutral background. No text, no watermark.",
+        "output": "shared_assets/images/clara.png"
+      },
+      {
+        "id": "mysterious_girl",
+        "type": "character",
+        "prompt": "Full-body character reference of a mysterious schoolgirl around 10 years old. Pale warm skin, straight dark hair cut just below the chin, dark eyes, wearing a neat dark navy school uniform with a white collar. Her expression is serious and unusually cautious. Standing in a neutral pose, facing camera. Cinematic 2D animated horror film illustration, polished professional animation, clean detailed linework, subtle painterly shading. Plain neutral background. No text, no watermark."
+      ,
+        "output": "shared_assets/images/mysterious_girl.png"
+      },
+      {
+        "id": "home_kitchen",
         "type": "location",
-        "prompt": "A cinematic 3D environment of an ancient village surrounded by a dense green forest. Small wooden houses, natural materials, trees, a dirt pathway and warm morning sunlight. Wide establishing shot. Professional educational documentary visual style. No people, no characters, no text or watermark.",
-        "output": "shared_assets/images/village.png"
+        "prompt": "Wide cinematic interior establishing shot of a comfortable modern family kitchen in the morning. Warm sunlight enters through a window, wooden cabinets, kitchen counter, water bottle, breakfast items and a tidy family home atmosphere. Warm cream and light brown color palette. No people. Cinematic 2D animated film background, polished professional animation, detailed environment, soft painterly shading. No text, no watermark.",
+        "output": "shared_assets/images/home_kitchen.png"
+      },
+      {
+        "id": "home_exterior",
+        "type": "location",
+        "prompt": "Exterior of a comfortable family home in a quiet residential neighborhood in the early morning. Small front garden, pathway leading to the front door, soft golden morning light, peaceful atmosphere. Cinematic 2D animated film background, polished professional animation, detailed environment, soft painterly shading. No people, no text, no watermark.",
+        "output": "shared_assets/images/home_exterior.png"
+      },
+      {
+        "id": "academy_gate",
+        "type": "location",
+        "prompt": "Grand exterior entrance of Prestige Academy, an expensive prestigious private school. Tall elegant iron gates, impressive cream stone buildings, symmetrical architecture, landscaped grounds, large entrance sign area, overcast morning light. The school should look beautiful but subtly intimidating. Cinematic 2D animated horror film background, polished professional animation, detailed environment, muted cool color palette. No people, no readable text, no watermark.",
+        "output": "shared_assets/images/academy_gate.png"
+      },
+      {
+        "id": "academy_courtyard",
+        "type": "location",
+        "prompt": "Wide cinematic view of the main courtyard inside Prestige Academy. Match the same cream stone architecture, dark iron details and elegant expensive private school design as its entrance. Large paved courtyard, classroom buildings surrounding it, windows and distant entrances. The atmosphere is strangely quiet and unsettling despite being a school. Cool muted morning lighting. Cinematic 2D animated horror film background, detailed environment, polished professional animation. No people, no text, no watermark.",
+        "output": "shared_assets/images/academy_courtyard.png"
+      },
+      {
+        "id": "academy_corridor",
+        "type": "location",
+        "prompt": "Interior of a long elegant corridor inside Prestige Academy. Match the same cream stone and dark architectural details of the school's exterior. Tall windows, classroom doors, polished floors, subtle shadows and cool muted daylight. The corridor feels unusually quiet, empty and unsettling. Cinematic 2D animated horror film background, detailed environment, polished professional animation, consistent visual style. No people, no text, no watermark.",
+        "output": "shared_assets/images/academy_corridor.png"
       }
     ]
   },
   "scenes": [
     {
       "number": 1,
-      "title": "The Beginning",
-      "narration": "Long before the modern world existed, a small community lived in the heart of the forest.",
+      "title": "The First Day",
+      "narration": "I was nervous about my first day at Prestige Academy. That morning, Mum was already rushing us. She kept telling me to hurry, but I wasn't even ready. When she noticed I was still holding my doll, she asked what was wrong. I finally told her I was scared.",
       "defaults": {
         "motion": {
           "type": "static",
-          "intensity": 0.03
+          "intensity": 0
         },
         "transition": {
           "type": "cut",
@@ -47,47 +85,30 @@
       "shots": [
         {
           "id": 1,
-          "description": "A wide cinematic establishing shot of the ancient village at sunrise, with golden sunlight filtering through the surrounding forest.",
-          "references": ["village"],
+          "description": "Wide establishing shot of the warm family kitchen in the morning. Sarah stands near the kitchen counter holding her small doll while Clara prepares to leave. The atmosphere is ordinary and peaceful.",
+          "references": ["home_kitchen", "sarah", "clara"],
           "motion": {
-            "type": "slow_zoom_in",
-            "intensity": 0.03
-          },
-          "transition": {
-            "type": "crossfade",
-            "duration": 0.5
+            "type": "static"
           }
         },
         {
           "id": 2,
-          "description": "The main character standing on a dirt pathway, looking towards the ancient village.",
-          "references": ["main_character", "village"],
+          "description": "Medium shot of Sarah looking nervous and clutching her doll while Clara turns towards her with a concerned, caring expression. Keep both characters' appearances consistent with their references.",
+          "references": ["sarah", "clara", "home_kitchen"],
           "motion": {
             "type": "static"
-          },
-          "transition": {
-            "type": "cut"
-          }
-        },
-        {
-          "id": 3,
-          "description": "A closer cinematic shot of the main character walking along the village pathway, surrounded by wooden houses and greenery.",
-          "references": ["main_character", "village"],
-          "motion": {
-            "type": "slow_pan_right",
-            "intensity": 0.02
           }
         }
       ]
     },
     {
       "number": 2,
-      "title": "A New Dawn",
-      "narration": "As the sun rose above the mountains, the villagers prepared for another day.",
+      "title": "A Mother's Promise",
+      "narration": "Mum told me not to worry. She promised she would come with me if that would make me feel better. I felt a little safer. After getting my things together, we finally left the house for school.",
       "defaults": {
         "motion": {
           "type": "static",
-          "intensity": 0.03
+          "intensity": 0
         },
         "transition": {
           "type": "cut",
@@ -97,20 +118,158 @@
       "shots": [
         {
           "id": 1,
-          "description": "A beautiful wide shot of the morning sun rising above the forest surrounding the village.",
-          "references": ["village"],
+          "description": "Emotional medium shot of Clara gently reassuring Sarah in the kitchen. Clara smiles warmly and places a comforting hand on Sarah's shoulder. Sarah looks slightly relieved while still holding her doll.",
+          "references": ["sarah", "clara", "home_kitchen"],
           "motion": {
-            "type": "slow_zoom_out",
-            "intensity": 0.03
+            "type": "static"
           }
         },
         {
           "id": 2,
-          "description": "The main character walking through the village as warm morning sunlight illuminates the pathway.",
-          "references": ["main_character", "village"],
+          "description": "Sarah and Clara walking together out of their family home towards the front pathway. Sarah carries her backpack and doll. Warm morning light, peaceful residential setting.",
+          "references": ["sarah", "clara", "home_exterior"],
           "motion": {
-            "type": "slow_pan_left",
-            "intensity": 0.02
+            "type": "static"
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Prestige Academy",
+      "narration": "When we arrived, I immediately noticed something strange. Prestige Academy looked beautiful, but the atmosphere felt wrong. The entire school was unusually quiet. Students were walking around, but I couldn't hear a single sound from their footsteps.",
+      "defaults": {
+        "motion": {
+          "type": "static",
+          "intensity": 0
+        },
+        "transition": {
+          "type": "cut",
+          "duration": 0
+        }
+      },
+      "shots": [
+        {
+          "id": 1,
+          "description": "Wide establishing shot of the grand iron entrance gates of Prestige Academy. The cream stone school buildings rise behind the gates. Sarah and Clara arrive at the entrance, appearing small against the impressive architecture.",
+          "references": ["academy_gate", "sarah", "clara"],
+          "motion": {
+            "type": "static"
+          }
+        },
+        {
+          "id": 2,
+          "description": "Wide view from inside the academy courtyard. A few schoolchildren walk silently across the paved courtyard in the distance. Sarah stands beside Clara, observing the strangely quiet environment. The school architecture matches the entrance.",
+          "references": ["academy_courtyard", "sarah", "clara"],
+          "motion": {
+            "type": "static"
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Something Is Wrong",
+      "narration": "I tugged at Mum's sleeve and told her something felt wrong. She explained that the school had lost its principal and said that was probably why everyone was so quiet. But I couldn't shake the feeling that something else was happening. Then Mum left me at the school.",
+      "defaults": {
+        "motion": {
+          "type": "static",
+          "intensity": 0
+        },
+        "transition": {
+          "type": "cut",
+          "duration": 0
+        }
+      },
+      "shots": [
+        {
+          "id": 1,
+          "description": "Medium shot of Sarah holding Clara's sleeve in the academy courtyard. Sarah looks worried and glances towards the silent students. Clara bends slightly to reassure her.",
+          "references": ["sarah", "clara", "academy_courtyard"],
+          "motion": {
+            "type": "static"
+          }
+        },
+        {
+          "id": 2,
+          "description": "Emotional wide-medium shot of Clara saying goodbye to Sarah near the academy entrance. Clara begins walking away while Sarah remains standing alone, holding her backpack. The courtyard feels increasingly empty and unsettling.",
+          "references": ["sarah", "clara", "academy_gate", "academy_courtyard"],
+          "motion": {
+            "type": "static"
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "The Girl",
+      "narration": "I stood there looking at the enormous school sign. Prestige Academy. The name sounded beautiful, but something about the place frightened me. Then I noticed a girl walking alone. She looked about my age, so I decided to approach her.",
+      "defaults": {
+        "motion": {
+          "type": "static",
+          "intensity": 0
+        },
+        "transition": {
+          "type": "cut",
+          "duration": 0
+        }
+      },
+      "shots": [
+        {
+          "id": 1,
+          "description": "Over-the-shoulder shot from behind Sarah as she looks up towards the impressive entrance sign area of Prestige Academy. The school building towers above her. The sign area is visible but contains no readable generated text.",
+          "references": ["sarah", "academy_gate"],
+          "motion": {
+            "type": "static"
+          }
+        },
+        {
+          "id": 2,
+          "description": "Sarah notices a mysterious schoolgirl walking alone through the academy courtyard. The girl has straight dark chin-length hair and a dark navy uniform. Sarah looks curious and cautiously approaches her.",
+          "references": ["sarah", "mysterious_girl", "academy_courtyard"],
+          "motion": {
+            "type": "static"
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Don't Wake Them",
+      "narration": "I greeted her, but before she could answer, she pressed a finger against my lips. She whispered, 'Shhh. Don't wake them up.' I was confused. 'Don't wake who up?' I asked. She pointed towards the students walking across the courtyard. That's when I noticed something terrifying. Their eyes were all closed.",
+      "defaults": {
+        "motion": {
+          "type": "static",
+          "intensity": 0
+        },
+        "transition": {
+          "type": "cut",
+          "duration": 0
+        }
+      },
+      "shots": [
+        {
+          "id": 1,
+          "description": "Medium two-shot of Sarah and the mysterious girl facing each other in the academy corridor. Sarah greets her with a friendly expression. The mysterious girl suddenly raises one finger to her lips, warning Sarah to be quiet.",
+          "references": ["sarah", "mysterious_girl", "academy_corridor"],
+          "motion": {
+            "type": "static"
+          }
+        },
+        {
+          "id": 2,
+          "description": "Close-medium shot of the mysterious girl whispering with a frightened serious expression while pointing towards the distant courtyard. Sarah looks confused and slowly turns to follow her gesture.",
+          "references": ["sarah", "mysterious_girl", "academy_corridor", "academy_courtyard"],
+          "motion": {
+            "type": "static"
+          }
+        },
+        {
+          "id": 3,
+          "description": "Eerie wide shot of several schoolchildren walking slowly through the academy courtyard with their eyes completely closed. Their bodies are upright and they appear to be walking normally despite their closed eyes. Sarah watches in horror from the foreground. Darker, unsettling atmosphere. End on this disturbing discovery.",
+          "references": ["sarah", "academy_courtyard"],
+          "motion": {
+            "type": "static"
           }
         }
       ]

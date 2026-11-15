@@ -7,6 +7,7 @@ from pathlib import Path
 from src.scene.processor import process_scene
 from dotenv import load_dotenv
 from src.visuals.processor import process_references
+from src.renderer.assembler import assemble_video
 
 
 # Project paths
@@ -125,6 +126,11 @@ def process_project(config, project_dir):
 
     print("\nAll scenes processed successfully!")
 
+    assemble_video(
+        project_dir=project_dir,
+        scenes=config.get("scenes", [])
+    )
+
 
 
 def main():
@@ -133,6 +139,7 @@ def main():
     project_dir = initialize_project(config)
 
     process_project(config, project_dir)
+
 
 
 if __name__ == "__main__":
